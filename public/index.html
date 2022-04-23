@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FPS</title>
+    <!--<link rel="stylesheet" type="text/css" href="game.css" />-->
+    <link rel="stylesheet" type="text/css" href="game.css" />
+</head>
+
+<body>
+    <div class="grid-container" id="container">
+        <canvas id="canvas">
+        </canvas>
+        <canvas id="minimap"></canvas>
+        <img id="camera" src="camera.png">
+        <div id="screenshot-wrapper"><canvas id="screenshot"></canvas></div>
+        <div id="banner">
+            <h1>Camera Maze 2: Dino Dilemma</h1>
+            <p>"WASD" to move and look around<br />
+                "Shift" to sprint<br />
+                "Space" to take a picture</p>
+                <a href="./grid.html"><button class="btn">Level Generator</button></a>
+        </div>
+    </div>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="filtrr2.js"></script>
+    <script type="text/javascript" src="jaws.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script>
+        jaws.assets.add(["dino.png"])
+        jaws.start(Game);
+    </script>
+    <script>
+        //prevent default on spacebar press so page doesn't scroll
+        $(document).keydown(function(e) {
+            if (e.keyCode == 32) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

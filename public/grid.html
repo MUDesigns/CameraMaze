@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <style>
+        html {
+            background-image: url('./background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        /* have div with class of grid sit in 14 rows and 16 columns*/
+        .grid-container {
+            background-image: url('./background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            display: inline-grid;
+            grid-template-columns: repeat(16, 1fr);
+            grid-template-rows: repeat(16, 1fr);
+            background-color: #fff;
+            align-items: center;
+            justify-items: center;
+            gap: 1px;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            justify-self: center;
+            align-self: center;
+            display: inline-block;
+            border: 1px solid #000;
+            height: 0;
+            width: 0;
+            min-height: 30px;
+            min-width: 30px;
+            font-family: Helvetica;
+            text-align: center;
+            text-shadow: 0 0 5px #fff;
+            font-weight: bold;
+            cursor:pointer;
+        }
+        .btn-block {
+            display: block;
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 0.5em;
+            font-size: 1em;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+        }
+        .btn-primary {
+            border: 1px solid #fff;
+        }
+        /* position span with id of copy to upper right hand corner of textarea */
+        #copy {
+            position: relative;
+            top: 0;
+            right: 0;
+            font-size: 1em;
+            color: #fff;
+            text-shadow: 0 0 5px #000;
+            cursor: pointer;
+        }
+        .ok {
+            width: 100%;
+            padding-right: 35%;
+            display: inline;
+        }
+        .ok2 {
+            width: 100%;
+            padding-left: 35%;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="ok"></div>
+    <div class="grid-container" id="grid-container">
+    </div>
+    <div class="ok2"></div>
+    <button class="btn-block btn-primary" type="submit" id="genArray">Generate Array</button>
+    <!--create read-only texarea -->
+    <div>
+    <textarea class="btn-block" id="array" rows="16" cols="50" placeholder="Array will appear here" readonly></textarea>
+    <button class="material-symbols-outlined btn-block btn-primary" id="copy">
+        content_copy<span style="font-family:'Helvetica' !important;">Copy</span>
+    </button>
+    <div>
+</form>
+    <script type="text/javascript" src="mapEditor.js"></script>
+    <script>
+        //copy all text in text area to clipboard when user clicks on copy button
+        document.getElementById("copy").addEventListener("click", function(e) {
+            e.preventDefault();
+            var copyText = document.getElementById("array");
+            copyText.select();
+            document.execCommand("copy");
+            window.alert("Array has been copied to clipboard");
+        });
+    </script>
+</body>
+</html>
